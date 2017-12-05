@@ -223,6 +223,53 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>gists</string>
+				<key>subtext</key>
+				<string>Shows your gists and opens them in WebBrowser</string>
+				<key>text</key>
+				<string>Github Gists</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>EFF111D9-9DDB-446B-8308-2527E99252C7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>if [ -z ${user} ]; then echo -n "/user-not-set^^^"; exit 0;  fi
+if [ -z ${personalToken} ]; then echo -n "/token-not-set^^^"; exit 0;  fi
+
+echo -n "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9F1EBFFB-363A-481D-AA5C-3489DE9794BC</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -322,27 +369,6 @@ sys.stdout.write(dump)
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>gists</string>
-				<key>subtext</key>
-				<string>Shows your gists and opens them in WebBrowser</string>
-				<key>text</key>
-				<string>Github Gists</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>EFF111D9-9DDB-446B-8308-2527E99252C7</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -362,32 +388,6 @@ end run</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>52DCB10A-0936-4710-9FFB-8E52F14410E7</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>if [ -z ${user} ]; then echo -n "/user-not-set^^^"; exit 0;  fi
-if [ -z ${personalToken} ]; then echo -n "/token-not-set^^^"; exit 0;  fi
-
-echo -n "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>9F1EBFFB-363A-481D-AA5C-3489DE9794BC</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -664,7 +664,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 		<string>user</string>
 	</array>
 	<key>version</key>
-	<string>v2017.12.XX</string>
+	<string>2017.12.05</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-github-gists</string>
 </dict>
