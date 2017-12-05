@@ -2,12 +2,12 @@
 [Alfred 3][1] workflow for opening your GitHub Gists in your default browser.
 
 # Installation
-1) Install [alfred-github-gists][2] wokflow.
+1) Install [alfred-github-gists][2] workflow.
 2) All further updates are handled automatically.
 
 ## Usage
 In Alfred, type `gists`. This initiate a gists retrieval process, which shows all your public and private GitHub Gists.
-Then you could preview a selected Gist content by pressing <kbd>⌘</kbd>+<kbd>y</kbd>, or open a selected Gist by pressing <kbd>enter</kbd>.
+Then, you could preview a selected Gist content by pressing <kbd>⌘</kbd>+<kbd>y</kbd>, or open a selected Gist by pressing <kbd>enter</kbd>.
 
 ![alfred-github-gist-menu](doc/images/alfred-gist-menu.png?raw=true "")
 
