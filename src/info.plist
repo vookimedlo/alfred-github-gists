@@ -329,7 +329,7 @@ for item in data:
     #
     alfreditems['items'].append({
         "mysortkey": mysortkey,
-		"uid": title,
+        "uid": title,
         "title": title,
         "subtitle": description,
         "autocomplete": title,
@@ -339,7 +339,7 @@ for item in data:
         }
     })
 
-# Sort currencies
+# Sort gists
 #
 lines = sorted(alfreditems['items'], key=lambda k: k['mysortkey'], reverse=False)
 dump = json.dumps({'items': lines}, indent=4)
@@ -664,7 +664,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 		<string>user</string>
 	</array>
 	<key>version</key>
-	<string>2017.12.05</string>
+	<string>2017.12.14</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-github-gists</string>
 </dict>
