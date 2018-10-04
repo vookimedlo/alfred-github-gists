@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>3D83604F-42DF-4921-B9E7-946F833B4CEA</string>
+				<string>E521D56F-09F3-4F56-8516-9C81673431F4</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>C3E506E4-3A41-423D-ABDD-2E35BF9DC87E</string>
+				<string>D0EC2969-05DA-4F50-85FB-BCEDF222196C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -90,11 +90,50 @@
 				<false/>
 			</dict>
 		</array>
+		<key>A48F8F7F-629E-4938-94B6-3B64978B32F5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3D83604F-42DF-4921-B9E7-946F833B4CEA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>C3E506E4-3A41-423D-ABDD-2E35BF9DC87E</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>52DCB10A-0936-4710-9FFB-8E52F14410E7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D0EC2969-05DA-4F50-85FB-BCEDF222196C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C3E506E4-3A41-423D-ABDD-2E35BF9DC87E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E521D56F-09F3-4F56-8516-9C81673431F4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A48F8F7F-629E-4938-94B6-3B64978B32F5</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -223,6 +262,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>import sys
+import tempfile
+
+cache = tempfile.mkstemp()[1]
+sys.stdout.write(cache)</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E521D56F-09F3-4F56-8516-9C81673431F4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -246,6 +312,7 @@
 				<key>script</key>
 				<string>#!/usr/bin/python
 
+import io
 import json
 import os
 import re
@@ -256,14 +323,23 @@ from requests.auth import HTTPBasicAuth
 query = "{query}"
 queryPattern = re.compile(query, re.I)
 
-user = os.getenv('user')
+user  = os.getenv('user')
 token = os.getenv('personalToken')
+cache = os.getenv('cache')
 
-url = 'https://api.github.com/users/' + user + '/gists'
-auth = HTTPBasicAuth(user, token)
-
-response = requests.get(url, auth=auth)
-data = json.loads(response.text)
+# Just a very simple caching
+#
+if os.path.isfile(cache) and os.path.getsize(cache) == 0:
+    url  = 'https://api.github.com/users/' + user + '/gists'
+    auth = HTTPBasicAuth(user, token)
+    response = requests.get(url, auth=auth)
+    data = json.loads(response.text)
+    with io.open(cache, 'w', encoding='utf8') as cacheFile:
+        dumpedData = json.dumps(data, ensure_ascii=False)
+        cacheFile.write(unicode(dumpedData))
+else:
+    with io.open(cache, 'r', encoding='utf8') as cacheFile:
+        data = json.loads(cacheFile.read())
 
 alfreditems = {"items": []}
 
@@ -354,7 +430,7 @@ end run</string>
 				<key>subtext</key>
 				<string>Shows your gists and opens them in WebBrowser</string>
 				<key>text</key>
-				<string>Github Gists</string>
+				<string>GitHub Gists</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -390,6 +466,51 @@ echo -n "{query}"</string>
 			<string>9F1EBFFB-363A-481D-AA5C-3489DE9794BC</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string># remove a cached file
+#
+if [ ! -z ${cache} ]; then rm "${cache}"; fi
+
+echo -n "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D0EC2969-05DA-4F50-85FB-BCEDF222196C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>cache</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>A48F8F7F-629E-4938-94B6-3B64978B32F5</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -558,7 +679,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>note</key>
 			<string>GitHubGists - display gists</string>
 			<key>xpos</key>
-			<integer>630</integer>
+			<integer>930</integer>
 			<key>ypos</key>
 			<integer>340</integer>
 		</dict>
@@ -569,7 +690,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>note</key>
 			<string>GitHubGists - open gist in browser</string>
 			<key>xpos</key>
-			<integer>930</integer>
+			<integer>1400</integer>
 			<key>ypos</key>
 			<integer>340</integer>
 		</dict>
@@ -582,7 +703,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>xpos</key>
 			<integer>630</integer>
 			<key>ypos</key>
-			<integer>530</integer>
+			<integer>520</integer>
 		</dict>
 		<key>90DF95FE-FD71-4D95-9DEF-374E3FFF9C8C</key>
 		<dict>
@@ -606,6 +727,17 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>ypos</key>
 			<integer>340</integer>
 		</dict>
+		<key>A48F8F7F-629E-4938-94B6-3B64978B32F5</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>5</integer>
+			<key>note</key>
+			<string>GitHubGists - transform cache file into variable</string>
+			<key>xpos</key>
+			<integer>810</integer>
+			<key>ypos</key>
+			<integer>370</integer>
+		</dict>
 		<key>C3E506E4-3A41-423D-ABDD-2E35BF9DC87E</key>
 		<dict>
 			<key>colorindex</key>
@@ -613,9 +745,31 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>note</key>
 			<string>GitHubGists - check url</string>
 			<key>xpos</key>
-			<integer>820</integer>
+			<integer>1290</integer>
 			<key>ypos</key>
 			<integer>370</integer>
+		</dict>
+		<key>D0EC2969-05DA-4F50-85FB-BCEDF222196C</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>5</integer>
+			<key>note</key>
+			<string>GitHubGists - remove a cached file</string>
+			<key>xpos</key>
+			<integer>1110</integer>
+			<key>ypos</key>
+			<integer>340</integer>
+		</dict>
+		<key>E521D56F-09F3-4F56-8516-9C81673431F4</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>5</integer>
+			<key>note</key>
+			<string>GitHubGists - create a temp cache file</string>
+			<key>xpos</key>
+			<integer>630</integer>
+			<key>ypos</key>
+			<integer>340</integer>
 		</dict>
 		<key>EFF111D9-9DDB-446B-8308-2527E99252C7</key>
 		<dict>
