@@ -20,6 +20,10 @@ Before the first usage, you are required to fill the workflow variables.
 - `user` is your Github username,
 - `personalToken` is your Github Personal Token created in your [user settings][3]. If you want to show your private gists, not just the public ones, select the `gist scope` during the personal token generation.
 
+Optionally, the following workflow variables could be set.
+
+- `keyword` contains the main workflow keyword, which is used to start this workflow. By default, it's set to `gists`.
+
 [1]: https://www.alfredapp.com/
 [2]: https://github.com/vookimedlo/alfred-github-gists/releases/latest
 [3]: https://github.com/settings/tokens
