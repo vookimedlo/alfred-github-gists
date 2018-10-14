@@ -316,9 +316,9 @@ import io
 import json
 import os
 import re
-import requests
 import sys
-from requests.auth import HTTPBasicAuth
+import base64
+import urllib2
 
 query = "{query}"
 queryPattern = re.compile(query, re.I)
@@ -331,9 +331,9 @@ cache = os.getenv('cache')
 #
 if os.path.isfile(cache) and os.path.getsize(cache) == 0:
     url  = 'https://api.github.com/users/' + user + '/gists'
-    auth = HTTPBasicAuth(user, token)
-    response = requests.get(url, auth=auth)
-    data = json.loads(response.text)
+    auth = {'Authorization': 'Basic ' + base64.b64encode(user + ':' + token)}
+    response = urllib2.urlopen(urllib2.Request(url, headers=auth)).read()
+    data = json.loads(response)
     with io.open(cache, 'w', encoding='utf8') as cacheFile:
         dumpedData = json.dumps(data, ensure_ascii=False)
         cacheFile.write(unicode(dumpedData))
@@ -820,7 +820,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 		<string>user</string>
 	</array>
 	<key>version</key>
-	<string>2018.10.04</string>
+	<string>2018.10.14</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-github-gists</string>
 </dict>
