@@ -12,6 +12,30 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>F5FD00A5-9BC1-4219-9F4C-BBCACBBA3D77</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>2E4C73AB-0D31-49F5-9FC6-25AAC21FDD7E</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>10BF19E8-25C0-4D4B-8AF4-1910DEDB15A1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>3AC5A510-EDC4-4448-925A-523021E79B10</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>E521D56F-09F3-4F56-8516-9C81673431F4</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -34,41 +58,8 @@
 				<false/>
 			</dict>
 		</array>
-		<key>90DF95FE-FD71-4D95-9DEF-374E3FFF9C8C</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>F5FD00A5-9BC1-4219-9F4C-BBCACBBA3D77</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>9F1EBFFB-363A-481D-AA5C-3489DE9794BC</key>
 		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>F1232220-E014-4916-AC8B-3A03E133F257</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>90DF95FE-FD71-4D95-9DEF-374E3FFF9C8C</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>3A2F0E29-2F86-4310-ABF2-0C40465E43FD</string>
@@ -112,6 +103,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>sourceoutputuid</key>
+				<string>5494B886-C269-45A9-9AC5-C30F6BB2BBA6</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -155,24 +148,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>F1232220-E014-4916-AC8B-3A03E133F257</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>10BF19E8-25C0-4D4B-8AF4-1910DEDB15A1</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Michal Duda</string>
 	<key>description</key>
-	<string>Alfred 3 workflow for opening your GitHub Gists in your default browser.</string>
+	<string>Alfred 4 workflow for opening your GitHub Gists in your default browser.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -189,47 +169,7 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>Personal Token hasn't been set yet</string>
-				<key>title</key>
-				<string>GitHub Gists</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>10BF19E8-25C0-4D4B-8AF4-1910DEDB15A1</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>inputstring</key>
-				<string>{query}</string>
-				<key>matchcasesensitive</key>
-				<false/>
-				<key>matchmode</key>
-				<integer>0</integer>
-				<key>matchstring</key>
-				<string>/token-not-set^^^</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
-			<key>uid</key>
-			<string>F1232220-E014-4916-AC8B-3A03E133F257</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Username hasn't been set yet</string>
+				<string>Username hasn't been set yet!</string>
 				<key>title</key>
 				<string>GitHub Gists</string>
 			</dict>
@@ -243,19 +183,65 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>inputstring</key>
-				<string>{query}</string>
-				<key>matchcasesensitive</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>matchmode</key>
-				<integer>0</integer>
-				<key>matchstring</key>
-				<string>/user-not-set^^^</string>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Personal Token hasn't been set yet!</string>
+				<key>title</key>
+				<string>GitHub Gists</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>90DF95FE-FD71-4D95-9DEF-374E3FFF9C8C</string>
+			<string>10BF19E8-25C0-4D4B-8AF4-1910DEDB15A1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>/user-not-set^^^</string>
+						<key>outputlabel</key>
+						<string>user not set</string>
+						<key>uid</key>
+						<string>2E4C73AB-0D31-49F5-9FC6-25AAC21FDD7E</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>/token-not-set^^^</string>
+						<key>outputlabel</key>
+						<string>token ot set</string>
+						<key>uid</key>
+						<string>3AC5A510-EDC4-4448-925A-523021E79B10</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>no error</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>3A2F0E29-2F86-4310-ABF2-0C40465E43FD</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -293,6 +279,8 @@ sys.stdout.write(cache)</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -312,28 +300,60 @@ sys.stdout.write(cache)</string>
 				<key>script</key>
 				<string>#!/usr/bin/python
 
+#########################################################
+# License: GPLv3
+# Author: Michal Duda &lt;github@vookimedlo.cz&gt;
+# Home: https://github.com/vookimedlo/alfred-github-gists
+# Project: alfred-github-gist
+#
+#########################################################
+
+import Queue
+import base64
 import io
 import json
 import os
 import re
 import sys
-import base64
 import urllib2
 
 query = "{query}"
 queryPattern = re.compile(query, re.I)
 
-user  = os.getenv('user')
+user = os.getenv('user')
 token = os.getenv('personalToken')
 cache = os.getenv('cache')
 
 # Just a very simple caching
 #
 if os.path.isfile(cache) and os.path.getsize(cache) == 0:
-    url  = 'https://api.github.com/users/' + user + '/gists'
+    data = []
+    url = 'https://api.github.com/users/' + user + '/gists'
     auth = {'Authorization': 'Basic ' + base64.b64encode(user + ':' + token)}
-    response = urllib2.urlopen(urllib2.Request(url, headers=auth)).read()
-    data = json.loads(response)
+
+    linkPattern = re.compile('&lt;(https://[^&gt;]+)&gt;\s*;\s*rel="next"')
+
+    queue = Queue.Queue()
+    queue.put(url)
+
+    while not queue.empty():
+        queuedUrl = queue.get()
+        response = urllib2.urlopen(urllib2.Request(queuedUrl, headers=auth))
+        header = response.info()
+        content = response.read()
+        partialData = json.loads(content)
+
+        # Join multiple json data
+        #
+        for i in xrange(0, len(partialData)):
+            data.append(partialData[i])
+
+        if 'link' in header.dict:
+            link = header.dict['link']
+            result = linkPattern.search(link)
+            if result:
+                queue.put(result.group(1))
+
     with io.open(cache, 'w', encoding='utf8') as cacheFile:
         dumpedData = json.dumps(data, ensure_ascii=False)
         cacheFile.write(unicode(dumpedData))
@@ -341,6 +361,8 @@ else:
     with io.open(cache, 'r', encoding='utf8') as cacheFile:
         data = json.loads(cacheFile.read())
 
+# Alfred menu items
+#
 alfreditems = {"items": []}
 
 for item in data:
@@ -354,8 +376,6 @@ for item in data:
 
     icon = "gist.png" if item["public"] else "gist-secret.png"
 
-    # Alfred menu items
-    #
     alfreditems['items'].append({
         "mysortkey": mysortkey,
         "uid": title,
@@ -380,7 +400,7 @@ sys.stdout.write(dump)
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Shows your gists and opens them in WebBrowser</string>
+				<string>Shows your gists and opens them in a WebBrowser</string>
 				<key>title</key>
 				<string>Github Gists</string>
 				<key>type</key>
@@ -393,7 +413,7 @@ sys.stdout.write(dump)
 			<key>uid</key>
 			<string>3D83604F-42DF-4921-B9E7-946F833B4CEA</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -497,6 +517,36 @@ echo -n "{query}"</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>^http</string>
+						<key>outputlabel</key>
+						<string>no error</string>
+						<key>uid</key>
+						<string>5494B886-C269-45A9-9AC5-C30F6BB2BBA6</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>C3E506E4-3A41-423D-ABDD-2E35BF9DC87E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string></string>
 				<key>variables</key>
@@ -509,44 +559,6 @@ echo -n "{query}"</string>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>A48F8F7F-629E-4938-94B6-3B64978B32F5</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>inputstring</key>
-				<string>{query}</string>
-				<key>matchcasesensitive</key>
-				<false/>
-				<key>matchmode</key>
-				<integer>2</integer>
-				<key>matchstring</key>
-				<string>^http</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
-			<key>uid</key>
-			<string>C3E506E4-3A41-423D-ABDD-2E35BF9DC87E</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>inputstring</key>
-				<string>{query}</string>
-				<key>matchcasesensitive</key>
-				<false/>
-				<key>matchmode</key>
-				<integer>0</integer>
-				<key>matchstring</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
-			<key>uid</key>
-			<string>3A2F0E29-2F86-4310-ABF2-0C40465E43FD</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -659,7 +671,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>xpos</key>
 			<integer>630</integer>
 			<key>ypos</key>
-			<integer>40</integer>
+			<integer>175</integer>
 		</dict>
 		<key>3A2F0E29-2F86-4310-ABF2-0C40465E43FD</key>
 		<dict>
@@ -668,9 +680,9 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>note</key>
 			<string>GitHubGists - check for error</string>
 			<key>xpos</key>
-			<integer>510</integer>
+			<integer>425</integer>
 			<key>ypos</key>
-			<integer>370</integer>
+			<integer>180</integer>
 		</dict>
 		<key>3D83604F-42DF-4921-B9E7-946F833B4CEA</key>
 		<dict>
@@ -705,17 +717,6 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>ypos</key>
 			<integer>520</integer>
 		</dict>
-		<key>90DF95FE-FD71-4D95-9DEF-374E3FFF9C8C</key>
-		<dict>
-			<key>colorindex</key>
-			<integer>1</integer>
-			<key>note</key>
-			<string>GitHubGists - check for error</string>
-			<key>xpos</key>
-			<integer>510</integer>
-			<key>ypos</key>
-			<integer>220</integer>
-		</dict>
 		<key>9F1EBFFB-363A-481D-AA5C-3489DE9794BC</key>
 		<dict>
 			<key>colorindex</key>
@@ -745,9 +746,9 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>note</key>
 			<string>GitHubGists - check url</string>
 			<key>xpos</key>
-			<integer>1290</integer>
+			<integer>1280</integer>
 			<key>ypos</key>
-			<integer>370</integer>
+			<integer>360</integer>
 		</dict>
 		<key>D0EC2969-05DA-4F50-85FB-BCEDF222196C</key>
 		<dict>
@@ -782,17 +783,6 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>ypos</key>
 			<integer>340</integer>
 		</dict>
-		<key>F1232220-E014-4916-AC8B-3A03E133F257</key>
-		<dict>
-			<key>colorindex</key>
-			<integer>1</integer>
-			<key>note</key>
-			<string>GitHubGists - check for error</string>
-			<key>xpos</key>
-			<integer>510</integer>
-			<key>ypos</key>
-			<integer>70</integer>
-		</dict>
 		<key>F5FD00A5-9BC1-4219-9F4C-BBCACBBA3D77</key>
 		<dict>
 			<key>colorindex</key>
@@ -802,7 +792,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 			<key>xpos</key>
 			<integer>630</integer>
 			<key>ypos</key>
-			<integer>190</integer>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>variables</key>
@@ -820,7 +810,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 		<string>user</string>
 	</array>
 	<key>version</key>
-	<string>2018.10.14</string>
+	<string>2019.10.19</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-github-gists</string>
 </dict>
