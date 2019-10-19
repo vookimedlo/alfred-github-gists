@@ -1,5 +1,5 @@
 # alfred-github-gist
-[Alfred 3][1] workflow for opening your GitHub Gists in your default browser.
+[Alfred 4][1] workflow for opening your GitHub Gists in your default browser.
 
 # Installation
 1) Install [alfred-github-gists][2] workflow.
