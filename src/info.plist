@@ -261,9 +261,9 @@ sys.stdout.write(cache)</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>temp_cache.py</string>
 				<key>type</key>
-				<integer>3</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -286,7 +286,7 @@ sys.stdout.write(cache)</string>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>68</integer>
+				<integer>0</integer>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -298,113 +298,17 @@ sys.stdout.write(cache)</string>
 				<key>runningsubtext</key>
 				<string>Retrieving your gists ...</string>
 				<key>script</key>
-				<string>#!/usr/bin/python
-
-#########################################################
-# License: GPLv3
-# Author: Michal Duda &lt;github@vookimedlo.cz&gt;
-# Home: https://github.com/vookimedlo/alfred-github-gists
-# Project: alfred-github-gist
-#
-#########################################################
-
-import Queue
-import base64
-import io
-import json
-import os
-import re
-import sys
-import urllib2
-
-query = "{query}"
-queryPattern = re.compile(query, re.I)
-
-user = os.getenv('user')
-token = os.getenv('personalToken')
-cache = os.getenv('cache')
-
-# Just a very simple caching
-#
-if os.path.isfile(cache) and os.path.getsize(cache) == 0:
-    data = []
-    url = 'https://api.github.com/users/' + user + '/gists'
-    auth = {'Authorization': 'Basic ' + base64.b64encode(user + ':' + token)}
-
-    linkPattern = re.compile('&lt;(https://[^&gt;]+)&gt;\s*;\s*rel="next"')
-
-    queue = Queue.Queue()
-    queue.put(url)
-
-    while not queue.empty():
-        queuedUrl = queue.get()
-        response = urllib2.urlopen(urllib2.Request(queuedUrl, headers=auth))
-        header = response.info()
-        content = response.read()
-        partialData = json.loads(content)
-
-        # Join multiple json data
-        #
-        for i in xrange(0, len(partialData)):
-            data.append(partialData[i])
-
-        if 'link' in header.dict:
-            link = header.dict['link']
-            result = linkPattern.search(link)
-            if result:
-                queue.put(result.group(1))
-
-    with io.open(cache, 'w', encoding='utf8') as cacheFile:
-        dumpedData = json.dumps(data, ensure_ascii=False)
-        cacheFile.write(unicode(dumpedData))
-else:
-    with io.open(cache, 'r', encoding='utf8') as cacheFile:
-        data = json.loads(cacheFile.read())
-
-# Alfred menu items
-#
-alfreditems = {"items": []}
-
-for item in data:
-    title = item['files'].keys()[0]
-    mysortkey = title.lower()
-    description = item['description']
-    url = item['html_url']
-
-    if query != "" and not queryPattern.search(str(title)):
-        continue
-
-    icon = "gist.png" if item["public"] else "gist-secret.png"
-
-    alfreditems['items'].append({
-        "mysortkey": mysortkey,
-        "uid": title,
-        "title": title,
-        "subtitle": description,
-        "autocomplete": title,
-        "arg": url,
-        "icon": {
-            "path": icon
-        }
-    })
-
-# Sort gists
-#
-lines = sorted(alfreditems['items'], key=lambda k: k['mysortkey'], reverse=False)
-dump = json.dumps({'items': lines}, indent=4)
-
-sys.stdout.write(dump)
-</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
 				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>gists.py</string>
 				<key>subtext</key>
 				<string>Shows your gists and opens them in a WebBrowser</string>
 				<key>title</key>
 				<string>Github Gists</string>
 				<key>type</key>
-				<integer>3</integer>
+				<integer>8</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
@@ -549,6 +453,8 @@ echo -n "{query}"</string>
 			<dict>
 				<key>argument</key>
 				<string></string>
+				<key>passthroughargument</key>
+				<false/>
 				<key>variables</key>
 				<dict>
 					<key>cache</key>
@@ -810,7 +716,7 @@ Icons taken from https://octicons.github.com/ - MIT License</string>
 		<string>user</string>
 	</array>
 	<key>version</key>
-	<string>2019.10.19</string>
+	<string>2022.02.20</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-github-gists</string>
 </dict>
