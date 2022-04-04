@@ -4,7 +4,7 @@
 # Installation
 1) Install [alfred-github-gists][2] workflow.
 2) All further updates are handled automatically.
-3) Requires a _python3_ interpreter to be installed via a [Homebrew][4].
+3) Requires a _python3_ interpreter to be installed (e.g. via a [Homebrew][4]).
 
 ## Usage
 In Alfred, type `gists`. This initiate a gists retrieval process, which shows all your public and private GitHub Gists.
